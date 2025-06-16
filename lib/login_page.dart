@@ -13,7 +13,7 @@ class _LoginPageState extends State<LoginPage> {
 
   final emaiLController = TextEditingController();
   final passwordController = TextEditingController();
-        
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,8 +73,8 @@ class _LoginPageState extends State<LoginPage> {
               ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
-                    if (emaiLController.text == 'Rahul@gmail.com' &&
-                        passwordController.text == 'Rahul123') {
+                    if (emaiLController.text.trim() == 'Rahul@gmail.com' &&
+                        passwordController.text.trim() == 'Rahul123') {
                       //IF the above condition is satisfied ,then goto homepage
                       Navigator.of(context).push(
                         MaterialPageRoute(
