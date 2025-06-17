@@ -14,7 +14,7 @@ class _GridViewPageState extends State<GridViewPage> {
     FruitModel(name: 'Apple', price: '200', imageUrl: FruitsContants.appleUrl),
     FruitModel(name: 'Banana', price: '60', imageUrl: FruitsContants.bananaUrl),
     FruitModel(
-      name: 'Coconut',
+      name: 'Coconut',     
       price: '70',
       imageUrl: FruitsContants.coconutUrl,
     ),
@@ -42,26 +42,48 @@ class _GridViewPageState extends State<GridViewPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Grid View Page'), centerTitle: true),
-      body: GridView.builder(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          mainAxisSpacing: 30,
-          crossAxisSpacing: 30,
-          crossAxisCount: 3,
-          childAspectRatio: 1,
-        ),
-        padding: EdgeInsets.all(20),
-        itemCount: fruitList.length,
+      body: Column(
+        children: [
 
-        itemBuilder: (context, index) {
-          return Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.red[100],
+          Expanded(
+            child: GridView.builder(
+              physics: AlwaysScrollableScrollPhysics(),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                mainAxisSpacing: 30,
+                crossAxisSpacing: 20,
+                crossAxisCount: 3,
+                childAspectRatio: 8 / 9,
+              ),
+              padding: EdgeInsets.all(20),
+              itemCount: fruitList.length,
+
+              itemBuilder: (context, index) {
+                final fruit = fruitList[index];
+                return Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.grey[300],
+                  ),
+                  padding: EdgeInsets.all(8),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(fruit.imageUrl, height: 50, width: 50),
+                      Text(
+                        fruit.name,
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      Text(fruit.price, style: TextStyle(fontSize: 16)),
+                    ],
+                  ),
+                );
+              },
             ),
-            padding: EdgeInsets.all(8),
-            child: Text('Hello'),
-          );
-        },
+          ),
+        ],
       ),
     );
   }
