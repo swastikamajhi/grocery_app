@@ -71,7 +71,7 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Icon(Icons.public),
                       SizedBox(
-                        height: 18,
+                        height: 18,   
                         child: VerticalDivider(
                           width: 20,
                           thickness: 1.5,
