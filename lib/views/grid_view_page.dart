@@ -42,85 +42,26 @@ class _GridViewPageState extends State<GridViewPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Grid View Page'), centerTitle: true),
-      body: GridView.count(
+      body: GridView.builder(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          mainAxisSpacing: 30,
+          crossAxisSpacing: 30,
+          crossAxisCount: 3,
+          childAspectRatio: 1,
+        ),
         padding: EdgeInsets.all(20),
-        mainAxisSpacing: 50,
-        crossAxisSpacing: 50,
-        crossAxisCount: 3,
-        children: [
-          Container(
+        itemCount: fruitList.length,
+
+        itemBuilder: (context, index) {
+          return Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               color: Colors.red[100],
             ),
             padding: EdgeInsets.all(8),
             child: Text('Hello'),
-          ),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.red[200],
-            ),
-            padding: EdgeInsets.all(8),
-            child: Text('Hello'),
-          ),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.red[300],
-            ),
-            padding: EdgeInsets.all(8),
-            child: Text('Hello'),
-          ),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.red[400],
-            ),
-            padding: EdgeInsets.all(8),
-            child: Text('Hello'),
-          ),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.red[500],
-            ),
-            padding: EdgeInsets.all(8),
-            child: Text('Hello'),
-          ),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.red[600],
-            ),
-            padding: EdgeInsets.all(8),
-            child: Text('Hello'),
-          ),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.red[700],
-            ),
-            padding: EdgeInsets.all(8),
-            child: Text('Hello'),
-          ),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.red[800],
-            ),
-            padding: EdgeInsets.all(8),
-            child: Text('Hello'),
-          ),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.red[900],
-            ),
-            padding: EdgeInsets.all(8),
-            child: Text('Hello'),
-          ),
-        ],
+          );
+        },
       ),
     );
   }
