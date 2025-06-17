@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:new_app/constants/fruits_contants.dart';
 import 'package:new_app/models/fruit_model.dart';
 
 class GridViewPage extends StatefulWidget {
@@ -10,15 +11,31 @@ class GridViewPage extends StatefulWidget {
 
 class _GridViewPageState extends State<GridViewPage> {
   final fruitList = [
-    FruitModel(name: 'Apple', price: '200', imageUrl: imageUrl),
-    FruitModel(name: 'Banana', price: '60', imageUrl: imageUrl),
-    FruitModel(name: 'Coconut', price: '70', imageUrl: imageUrl),
-    FruitModel(name: 'Watermelon', price: '300', imageUrl: imageUrl),
-    FruitModel(name: 'Strawberry', price: '500', imageUrl: imageUrl),
-    FruitModel(name: 'Grapes', price: '80', imageUrl: imageUrl),
-    FruitModel(name: 'Avocardo', price: '1000', imageUrl: imageUrl),
-    FruitModel(name: 'Mango', price: '170', imageUrl: imageUrl),
-    FruitModel(name: 'Lichi', price: '250', imageUrl: imageUrl),
+    FruitModel(name: 'Apple', price: '200', imageUrl: FruitsContants.appleUrl),
+    FruitModel(name: 'Banana', price: '60', imageUrl: FruitsContants.bananaUrl),
+    FruitModel(
+      name: 'Coconut',
+      price: '70',
+      imageUrl: FruitsContants.coconutUrl,
+    ),
+    FruitModel(
+      name: 'Watermelon',
+      price: '300',
+      imageUrl: FruitsContants.watermelonUrl,
+    ),
+    FruitModel(
+      name: 'Strawberry',
+      price: '500',
+      imageUrl: FruitsContants.strawberryUrl,
+    ),
+    FruitModel(name: 'Grapes', price: '80', imageUrl: FruitsContants.grapesUrl),
+    FruitModel(
+      name: 'Avocardo',
+      price: '1000',
+      imageUrl: FruitsContants.avocardoUrl,
+    ),
+    FruitModel(name: 'Mango', price: '170', imageUrl: FruitsContants.mangoUrl),
+    FruitModel(name: 'Lichi', price: '250', imageUrl: FruitsContants.lichiUrl),
   ];
 
   @override
