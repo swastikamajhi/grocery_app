@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:new_app/constants/fruits_contants.dart';
 import 'package:new_app/models/fruit_model.dart';
+import 'package:new_app/widgets/search_bar_widget.dart';
 
 class GridViewPage extends StatefulWidget {
   const GridViewPage({super.key});
@@ -10,11 +11,28 @@ class GridViewPage extends StatefulWidget {
 }
 
 class _GridViewPageState extends State<GridViewPage> {
+  void searchFruit(String searchQuery) {
+    if (searchQuery == '') {
+      setState(() {
+        filteredFruitList = fruitList;
+      });
+    } else {
+      setState(() {
+        filteredFruitList = fruitList.where((e) {
+          return e.name.toLowerCase().contains(searchQuery.toLowerCase()) ||
+              e.price.contains(searchQuery.toLowerCase());
+        }).toList();
+      });
+    }
+  }
+
+  List<FruitModel> filteredFruitList = [];
+
   final fruitList = [
     FruitModel(name: 'Apple', price: '200', imageUrl: FruitsContants.appleUrl),
     FruitModel(name: 'Banana', price: '60', imageUrl: FruitsContants.bananaUrl),
     FruitModel(
-      name: 'Coconut',     
+      name: 'Coconut',
       price: '70',
       imageUrl: FruitsContants.coconutUrl,
     ),
@@ -39,12 +57,25 @@ class _GridViewPageState extends State<GridViewPage> {
   ];
 
   @override
+  void initState() {
+    filteredFruitList = fruitList;
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Grid View Page'), centerTitle: true),
       body: Column(
         children: [
-
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: SearchBarWidget(
+              onSearch: (String searchQuery) {
+                searchFruit(searchQuery);
+              },
+            ),
+          ),
           Expanded(
             child: GridView.builder(
               physics: AlwaysScrollableScrollPhysics(),
@@ -55,10 +86,10 @@ class _GridViewPageState extends State<GridViewPage> {
                 childAspectRatio: 8 / 9,
               ),
               padding: EdgeInsets.all(20),
-              itemCount: fruitList.length,
+              itemCount: filteredFruitList.length,
 
               itemBuilder: (context, index) {
-                final fruit = fruitList[index];
+                final fruit = filteredFruitList[index];
                 return Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),

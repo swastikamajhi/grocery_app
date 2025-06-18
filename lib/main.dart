@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:new_app/views/grid_view_page.dart';
-import 'package:new_app/views/home_page.dart';
 
 void main() {
   runApp(const MyApp());
