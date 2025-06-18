@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:new_app/constants/fruits_contants.dart';
 import 'package:new_app/models/fruit_model.dart';
+import 'package:new_app/views/fruits_detail_page.dart';
 import 'package:new_app/widgets/search_bar_widget.dart';
 
 class GridViewPage extends StatefulWidget {
@@ -90,25 +91,38 @@ class _GridViewPageState extends State<GridViewPage> {
 
               itemBuilder: (context, index) {
                 final fruit = filteredFruitList[index];
-                return Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.grey[300],
-                  ),
-                  padding: EdgeInsets.all(8),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(fruit.imageUrl, height: 50, width: 50),
-                      Text(
-                        fruit.name,
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                        ),
+                return InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => FruitsDetailPage(fruit: fruit),
                       ),
-                      Text(fruit.price, style: TextStyle(fontSize: 16)),
-                    ],
+                    );
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.grey[300],
+                    ),
+                    padding: EdgeInsets.all(8),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(fruit.imageUrl, height: 50, width: 50),
+                        Text(
+                          fruit.name,
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        Text(
+                          "Rs. ${fruit.price}",
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      ],
+                    ),
                   ),
                 );
               },
