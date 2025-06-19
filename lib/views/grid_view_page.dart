@@ -110,11 +110,13 @@ class _GridViewPageState extends State<GridViewPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.asset(fruit.imageUrl, height: 50, width: 50),
-                        Text(
-                          fruit.name,
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
+                        FittedBox(
+                          child: Text(
+                            fruit.name,
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ),
                         Text(

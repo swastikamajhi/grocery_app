@@ -11,7 +11,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Home Page')),
+      appBar: AppBar(title: Text('Home Page'), centerTitle: true),
 
       body: Center(
         child: Container(
@@ -71,7 +71,7 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Icon(Icons.public),
                       SizedBox(
-                        height: 18,   
+                        height: 18,
                         child: VerticalDivider(
                           width: 20,
                           thickness: 1.5,
