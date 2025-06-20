@@ -21,6 +21,7 @@ class _MainNavPageState extends State<MainNavPage> {
       icon: Icon(Icons.local_grocery_store_outlined),
       label: 'Groceries',
     ),
+
     BottomNavigationBarItem(
       icon: Icon(Icons.shopping_bag_outlined),
       label: 'Cart Page',
@@ -36,7 +37,6 @@ class _MainNavPageState extends State<MainNavPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(title: Text('Fruits App')),
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: navBarItems,
