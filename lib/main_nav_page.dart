@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:new_app/views/cart_page.dart';
-import 'package:new_app/views/grid_view_page.dart';
-import 'package:new_app/views/home_page.dart';
+import 'package:new_app/pageview/cart_page.dart';
+import 'package:new_app/pageview/gridview_page.dart';
+import 'package:new_app/pageview/home_page.dart';
+import 'package:new_app/pageview/profile_page.dart';
 
 class MainNavPage extends StatefulWidget {
   const MainNavPage({super.key});
@@ -11,37 +12,39 @@ class MainNavPage extends StatefulWidget {
 }
 
 class _MainNavPageState extends State<MainNavPage> {
-  int _selectedIndex = 0;
+  int currentPage = 0;
 
-  final _pages = [HomePage(), GridViewPage(), CartPage()];
+  final page = [Homepage(), GridviewPage(), CartPage(), ProfilePage()];
 
-  final navBarItems = <BottomNavigationBarItem>[
-    BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: 'Home'),
+  final bootomNavIteam = <BottomNavigationBarItem>[
+    BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: "Home"),
     BottomNavigationBarItem(
       icon: Icon(Icons.local_grocery_store_outlined),
-      label: 'Groceries',
+      label: "Groceries",
     ),
-
     BottomNavigationBarItem(
       icon: Icon(Icons.shopping_bag_outlined),
-      label: 'Cart Page',
+      label: "Cart Page",
     ),
+    BottomNavigationBarItem(icon: Icon(Icons.person_outline), label: "Profile"),
   ];
 
-  void _onItemTapped(int index) {
+  triggerPage(int index) {
     setState(() {
-      _selectedIndex = index;
+      currentPage = index;
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _pages[_selectedIndex],
+      body: page[currentPage],
       bottomNavigationBar: BottomNavigationBar(
-        items: navBarItems,
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
+        items: bootomNavIteam,
+        currentIndex: currentPage,
+        selectedItemColor: Colors.grey[700],
+        unselectedItemColor: Colors.grey[400],
+        onTap: triggerPage,
       ),
     );
   }
