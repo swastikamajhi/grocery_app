@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:new_app/models/favrouit_item_model.dart';
+import 'package:new_app/model/favrouit_item_model.dart';
 
 class FavoriteProvider with ChangeNotifier {
   List<FavrouitItemModel> _favoriteItem = [];

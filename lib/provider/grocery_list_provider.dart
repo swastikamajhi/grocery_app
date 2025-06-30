@@ -1,8 +1,8 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:new_app/models/fruitmodel.dart';
-import 'package:new_app/models/vegatable_model.dart';
+import 'package:new_app/model/fruitmodel.dart';
+import 'package:new_app/model/vegatable_model.dart';
 import 'package:new_app/utils/fruit_list.dart';
 import 'package:new_app/utils/vegatable_list.dart';
 
@@ -73,6 +73,14 @@ class GroceryListProvider with ChangeNotifier {
 
   bool isVegetableState() {
     return _groceryListState == GroceryListState.vegatalbe;
+  }
+
+  List getGroceryList() {
+    if (isFruitState()) {
+      return _filteredFruitList;
+    } else {
+      return _filteredVegatableList;
+    }
   }
 }
 

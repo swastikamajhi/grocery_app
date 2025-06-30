@@ -25,15 +25,15 @@ class CustomWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Name: Swastika Majhi",
+                    "Name: Swastika  Majhi",
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    "Address: Gramthan",
+                    "Address: Brt",
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
                   ),
                   Text(
-                    "Age: 24",
+                    "Age: 23",
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
                   ),
                 ],

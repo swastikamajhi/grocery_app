@@ -1,4 +1,4 @@
-import 'package:new_app/models/fruitmodel.dart';
+import 'package:new_app/model/fruitmodel.dart';
 import 'package:new_app/utils/fruitspath.dart';
 
 class FruitList {

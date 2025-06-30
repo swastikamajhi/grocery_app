@@ -1,4 +1,4 @@
-import 'package:new_app/models/vegatable_model.dart';
+import 'package:new_app/model/vegatable_model.dart';
 import 'package:new_app/utils/vegatablepath.dart';
 
 class VegatableList {
